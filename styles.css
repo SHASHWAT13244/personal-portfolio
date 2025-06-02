@@ -1,0 +1,517 @@
+
+
+
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f0e6ff; /* Soft pastel lavender */
+  color: #2c2c54; /* Dark purple text */
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+a {
+  color: #6c63ff; /* Pastel violet */
+  text-decoration: none;
+}
+
+a:hover {
+  color: #4834d4; /* Darker violet */
+  text-decoration: underline;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #d6ccff; /* Light lavender */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 3px 6px rgba(108, 99, 255, 0.3);
+  transition: background-color 0.4s;
+}
+
+nav .logo {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.8rem;
+  color: #6c63ff;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a.active,
+nav a:hover {
+  color: #4834d4;
+  font-weight: 600;
+}
+
+nav button#toggle-theme {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #6c63ff;
+  transition: color 0.3s;
+}
+
+nav button#toggle-theme:hover {
+  color: #4834d4;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #d6ccff, #a79cff);
+  text-align: center;
+  color: #2c2c54;
+}
+
+.intro-text {
+  max-width: 900px;
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+}
+
+.intro-text ul {
+  margin: 0.8rem 0;
+  padding-left: 1.5rem;
+  text-align: left;
+}
+
+.intro-text h3 {
+  color: #4834d4;
+  margin-top: 1.5rem;
+  text-align: left;
+}
+
+#cube-container {
+  width: 300px;
+  height: 300px;
+  margin-top: 2rem;
+}
+
+.section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: #f9f7ff;
+  border-top: 1px solid #d6ccff;
+  color: #2c2c54;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+.section:nth-of-type(even) {
+  background-color: #eae7ff;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #6c63ff;
+}
+
+.section ul {
+  list-style-type: square;
+  padding-left: 2rem;
+  text-align: left;
+  max-width: 800px;
+  margin: 1rem auto;
+}
+
+.project {
+  margin: 1rem 0;
+}
+
+form {
+  max-width: 500px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+form input,
+form textarea {
+  padding: 0.75rem;
+  border: 1px solid #b8b3ff;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #6c63ff;
+  outline: none;
+}
+
+form button {
+  padding: 0.75rem;
+  background-color: #6c63ff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Neon-style glowing button effect */
+form button:hover {
+  background-color: #4834d4;
+  box-shadow: 0 0 10px #6c63ff, 0 0 20px #6c63ff, 0 0 30px #4834d4;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  color: #6c63ff;
+  font-weight: 600;
+}
+
+footer {
+  padding: 2rem;
+  text-align: center;
+  background-color: #d6ccff;
+  color: #4834d4;
+  font-size: 0.9rem;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+/* === Dark Mode */
+body.dark-mode {
+  background: #1e1e2f;
+  color: #c5c6d0;
+}
+
+body.dark-mode nav {
+  background: #2e2e44;
+  box-shadow: 0 3px 6px rgba(108, 99, 255, 0.5);
+}
+
+body.dark-mode nav .logo,
+body.dark-mode nav a,
+body.dark-mode .section h2,
+body.dark-mode .icons {
+  color: #a288ff;
+}
+
+body.dark-mode nav button#toggle-theme {
+  color: #a288ff;
+}
+
+body.dark-mode nav button#toggle-theme:hover {
+  color: #6c63ff;
+}
+
+body.dark-mode header {
+  background: linear-gradient(135deg, #312f44, #4b3f72);
+  color: #c5c6d0;
+}
+
+body.dark-mode .section {
+  background-color: #2b2a3a;
+  color: #c5c6d0;
+  border-color: #4834d4;
+}
+
+body.dark-mode form input,
+body.dark-mode form textarea {
+  background-color: #3a3753;
+  border-color: #695fd1;
+  color: #c5c6d0;
+}
+
+body.dark-mode form input:focus,
+body.dark-mode form textarea:focus {
+  border-color: #a288ff;
+}
+
+body.dark-mode form button {
+  background-color: #695fd1;
+  color: #fff;
+}
+
+body.dark-mode form button:hover {
+  background-color: #4834d4;
+  box-shadow: 0 0 10px #a288ff, 0 0 20px #a288ff, 0 0 30px #695fd1;
+}
+
+body.dark-mode footer {
+  background-color: #2e2e44;
+  color: #a288ff;
+}
+
+/* === Parallax container */
+.parallax-bg {
+  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  padding: 5rem 2rem;
+  text-shadow: 0 0 8px rgba(0,0,0,0.7);
+  border-top: none;
+  border-bottom: 1px solid #d6ccff;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  nav ul {
+    gap: 1rem;
+  }
+
+  header, .section {
+    padding: 2rem 1rem;
+  }
+
+  #cube-container {
+    width: 200px;
+    height: 200px;
+  }
+
+  .intro-text ul,
+  .section ul {
+    padding-left: 1rem;
+  }
+}
+
+/* Certificates grid */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.cert-card {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(108, 99, 255, 0.2);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(108, 99, 255, 0.3);
+}
+
+.cert-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.cert-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #4834d4;
+}
+
+.cert-card p {
+  font-size: 0.95rem;
+  color: #2c2c54;
+  margin-bottom: 1rem;
+}
+
+.cert-card a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #6c63ff;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.cert-card a:hover {
+  background-color: #4834d4;
+}
+
+/* Dark mode cert-card */
+body.dark-mode .cert-card {
+  background-color: #2e2e44;
+  color: #c5c6d0;
+  box-shadow: 0 4px 10px rgba(162, 136, 255, 0.3);
+}
+
+body.dark-mode .cert-card h3 {
+  color: #a288ff;
+}
+
+body.dark-mode .cert-card a {
+  background-color: #695fd1;
+}
+
+body.dark-mode .cert-card a:hover {
+  background-color: #4834d4;
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(44, 44, 84, 0.9);
+  transition: all 0.3s ease;
+}
+
+.modal iframe {
+  margin: auto;
+  display: block;
+  width: 80%;
+  height: 80%;
+  border: none;
+  border-radius: 10px;
+}
+
+.modal .close {
+  position: absolute;
+  top: 25px;
+  right: 45px;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.modal .close:hover {
+  color: #6c63ff;
+}
+
+/* ====== COLLAPSIBLE INFOSYS CERTIFICATES ====== */
+
+.collapse-toggle {
+  background-color: #6c63ff;
+  color: #fff;
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin: 2rem auto 1rem;
+  display: block;
+  max-width: 400px;
+  transition: background-color 0.3s ease;
+  user-select: none;
+  text-align: center;
+}
+
+.collapse-toggle:hover {
+  background-color: #4834d4;
+}
+
+/* Collapsible content styles */
+.collapse-content {
+  display: none;
+  max-width: 1100px;
+  margin: 0 auto 4rem auto;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.collapse-content.show {
+  display: grid !important;
+}
+
+/* Infosys cert cards same style as others */
+.cert-subcard {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(108, 99, 255, 0.2);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-subcard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(108, 99, 255, 0.3);
+}
+
+.cert-subcard img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.cert-subcard h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #4834d4;
+}
+
+.cert-subcard p {
+  font-size: 0.95rem;
+  color: #2c2c54;
+  margin-bottom: 1rem;
+}
+
+.cert-subcard a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #6c63ff;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.cert-subcard a:hover {
+  background-color: #4834d4;
+}
+
+/* Dark mode for cert-subcard */
+body.dark-mode .cert-subcard {
+  background-color: #2e2e44;
+  color: #c5c6d0;
+  box-shadow: 0 4px 10px rgba(162, 136, 255, 0.3);
+}
+
+body.dark-mode .cert-subcard h3 {
+  color: #a288ff;
+}
+
+body.dark-mode .cert-subcard a {
+  background-color: #695fd1;
+}
+
+body.dark-mode .cert-subcard a:hover {
+  background-color: #4834d4;
+}
